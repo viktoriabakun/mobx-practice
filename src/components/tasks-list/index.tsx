@@ -1,15 +1,12 @@
-import React, {FC} from 'react'
-import {ITask} from "../../interfaces/todolist";
+import React, {FC, useContext} from 'react'
 
 import "./styles.css"
+import TodoStore from "../../stores/todo";
 
- interface ITasksList {
-    tasks: ITask[];
-    toggleTask: (index: number) => void;
-}
+const TasksList: FC = () => {
+    const {tasks, toggleTask, deleteTask} = useContext(TodoStore);
 
-const TasksList: FC<ITasksList> = ({ tasks, toggleTask }) =>
-    (
+    return (
         <ul className="list">
             {tasks?.map(({id, text, completed}, index) => (
 
@@ -20,9 +17,11 @@ const TasksList: FC<ITasksList> = ({ tasks, toggleTask }) =>
                 >
                     <input checked={completed} type="checkbox"/>
                     <div>{text}</div>
+                    <div onClick={() => deleteTask(id)}>x</div>
                 </li>
             ))}
         </ul>
-    )
+    );
+}
 
 export default TasksList

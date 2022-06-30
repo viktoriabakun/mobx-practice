@@ -13,13 +13,17 @@ export class Tasks {
         return this.tasks.filter(t => !t.completed).length
     }
 
-    toggleTodo = (index: number) => {
+    toggleTask = (index: number) => {
         this.tasks[index].completed = !this.tasks[index]
             .completed
     }
 
     addTask = (task: ITask) => {
         this.tasks = [...this.tasks, task]
+    }
+
+    deleteTask = (taskId: string) => {
+        this.tasks = this.tasks.filter((task) => taskId !== task.id);
     }
 }
 
