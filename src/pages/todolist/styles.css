@@ -1,0 +1,9 @@
+.todoContainer {
+    border: 2px solid gray;
+}
+
+.remaining {
+    border-top: 2px dashed gray;
+    padding: 10px 20px;
+    margin: 0;
+}

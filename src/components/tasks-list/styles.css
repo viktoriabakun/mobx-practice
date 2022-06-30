@@ -1,0 +1,22 @@
+.list {
+    list-style: none;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.task {
+    text-decoration: none;
+    margin: 10px;
+    opacity: 1;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}

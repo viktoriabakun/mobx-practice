@@ -1,21 +1,26 @@
-import { createContext } from 'react'
-import { observable, computed } from 'mobx'
+import {createContext} from 'react'
+import {computed, observable} from 'mobx'
+import {ITask} from "../interfaces/todolist";
 
-export class Todos {
-    @observable todos = [
-        { id: 1, text: 'Buy eggs', completed: true },
-        { id: 2, text: 'Write a post', completed: false },
-        { id: 3, text: 'Learn mobx', completed: false }
+export class Tasks {
+    @observable tasks: ITask[] = [
+        { id: '1', text: 'Buy eggs', completed: true },
+        { id: '2', text: 'Write a post', completed: false },
+        { id: '3', text: 'Learn mobx', completed: false }
     ]
 
-    @computed  get remainingTodos() {
-        return this.todos.filter(t => !t.completed).length
+    @computed get remainingTodos() {
+        return this.tasks.filter(t => !t.completed).length
     }
 
     toggleTodo = (index: number) => {
-        this.todos[index].completed = !this.todos[index]
+        this.tasks[index].completed = !this.tasks[index]
             .completed
+    }
+
+    addTask = (task: ITask) => {
+        this.tasks = [...this.tasks, task]
     }
 }
 
-export default createContext(new Todos())
+export default createContext(new Tasks())
