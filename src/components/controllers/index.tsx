@@ -3,13 +3,14 @@ import type { ChangeEvent, FC } from 'react';
 import React, { useCallback, useContext, useState } from 'react';
 import type { ITask } from '../../interfaces/todolist';
 import TodoStore from '../../stores/todo';
+import './styles.css';
 
 const initTask: ITask = { id: '', text: '', completed: false };
 
 const Controllers: FC = () => {
-  const [newTask, setNewTask] = useState(initTask);
-
   const { addTask } = useContext(TodoStore);
+
+  const [newTask, setNewTask] = useState(initTask);
 
   const onAddTask = useCallback(() => {
     addTask({ ...newTask, id: nanoid() });
@@ -30,7 +31,7 @@ const Controllers: FC = () => {
   return (
     <div className="controllers">
       <input value={newTask.text} onChange={onChange} onKeyPress={onKeyPress} type="text" />
-      <button type="button" onClick={onAddTask}>
+      <button className="addBtn" type="button" onClick={onAddTask}>
         Add task
       </button>
     </div>

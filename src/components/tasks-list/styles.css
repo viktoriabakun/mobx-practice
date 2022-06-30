@@ -7,15 +7,22 @@
 }
 
 .task {
-    text-decoration: none;
     margin: 10px;
-    opacity: 1;
     display: flex;
     gap: 10px;
     align-items: center;
 }
 
+.taskText {
+    opacity: 1;
+    text-decoration: none;
+}
+
 .completed {
     text-decoration: line-through;
     opacity: 0.5;
+}
+
+.deleteBtn {
+    cursor: pointer;
 }

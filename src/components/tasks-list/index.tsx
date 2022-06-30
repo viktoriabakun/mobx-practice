@@ -9,10 +9,10 @@ const TasksList: FC = () => {
   return (
     <ul className="list">
       {tasks?.map(({ id, text, completed }, index) => (
-        <li key={id} role="presentation" className={`task ${completed ? 'completed' : ''}`}>
+        <li key={id} role="presentation" className={`task`}>
           <input checked={completed} onChange={() => toggleTask(index)} type="checkbox" />
-          <div>{text}</div>
-          <button type="button" onClick={() => deleteTask(id)}>
+          <div className={`taskText ${completed ? 'completed' : ''}`}>{text}</div>
+          <button className="deleteBtn" type="button" onClick={() => deleteTask(id)}>
             x
           </button>
         </li>

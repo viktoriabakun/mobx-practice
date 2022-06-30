@@ -3,4 +3,18 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    border-bottom: 2px dashed gray;
+    padding: 20px;
+}
+
+.addBtn {
+    background-color: darkseagreen;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px -1px 0 0;
+    transition: 0.2s;
+}
+
+.addBtn:active {
+    box-shadow: 1px 0 0 0;
 }
