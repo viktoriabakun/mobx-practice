@@ -12,9 +12,7 @@ const TodoList = observer(() => {
     <div className="todoContainer">
       <Controllers />
       <TasksList />
-      <p className="remaining">
-        {remainingTodos} / {tasks.length} left
-      </p>
+      <p className="remaining">{`${remainingTodos} / ${tasks.length} left`}</p>
     </div>
   );
 });

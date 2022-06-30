@@ -9,19 +9,19 @@ export class Tasks {
     { id: '3', text: 'Learn mobx', completed: false },
   ];
 
-  @computed get remainingTodos() {
+  @computed get remainingTodos(): number {
     return this.tasks.filter((t) => !t.completed).length;
   }
 
-  toggleTask = (index: number) => {
+  toggleTask = (index: number): void => {
     this.tasks[index].completed = !this.tasks[index].completed;
   };
 
-  addTask = (task: ITask) => {
+  addTask = (task: ITask): void => {
     this.tasks = [...this.tasks, task];
   };
 
-  deleteTask = (taskId: string) => {
+  deleteTask = (taskId: string): void => {
     this.tasks = this.tasks.filter((task) => taskId !== task.id);
   };
 }

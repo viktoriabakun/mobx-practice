@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import React from 'react';
 import './app.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -5,7 +6,7 @@ import Counter from './pages/counter';
 import Home from './pages/home';
 import TodoList from './pages/todolist';
 
-const App = () => (
+const App: FC = () => (
   <div className="App">
     <BrowserRouter>
       <Routes>

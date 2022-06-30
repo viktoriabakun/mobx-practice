@@ -1,12 +1,12 @@
 import { nanoid } from 'nanoid';
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, FC } from 'react';
 import React, { useCallback, useContext, useState } from 'react';
 import type { ITask } from '../../interfaces/todolist';
 import TodoStore from '../../stores/todo';
 
 const initTask: ITask = { id: '', text: '', completed: false };
 
-const Controllers = () => {
+const Controllers: FC = () => {
   const [newTask, setNewTask] = useState(initTask);
 
   const { addTask } = useContext(TodoStore);
@@ -28,7 +28,7 @@ const Controllers = () => {
   };
 
   return (
-    <div>
+    <div className="controllers">
       <input value={newTask.text} onChange={onChange} onKeyPress={onKeyPress} type="text" />
       <button type="button" onClick={onAddTask}>
         Add task
