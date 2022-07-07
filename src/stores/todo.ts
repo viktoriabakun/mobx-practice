@@ -4,17 +4,17 @@ import type { ITask } from '../interfaces/todolist';
 
 export class Tasks {
   @observable tasks: ITask[] = [
-    { id: '1', text: 'Buy eggs', completed: true },
-    { id: '2', text: 'Write a post', completed: false },
-    { id: '3', text: 'Learn mobx', completed: false },
+    { id: '1', title: 'Buy eggs', isDone: true },
+    { id: '2', title: 'Write a post', isDone: false },
+    { id: '3', title: 'Learn mobx', isDone: false },
   ];
 
   @computed get remainingTodos(): number {
-    return this.tasks.filter((t) => !t.completed).length;
+    return this.tasks.filter((t) => !t.isDone).length;
   }
 
   toggleTask = (index: number): void => {
-    this.tasks[index].completed = !this.tasks[index].completed;
+    this.tasks[index].isDone = !this.tasks[index].isDone;
   };
 
   addTask = (task: ITask): void => {

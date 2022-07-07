@@ -5,7 +5,7 @@ import type { ITask } from '../../interfaces/todolist';
 import TodoStore from '../../stores/todo';
 import './styles.css';
 
-const initTask: ITask = { id: '', text: '', completed: false };
+const initTask: ITask = { id: '', title: '', isDone: false };
 
 const Controllers: FC = () => {
   const { addTask } = useContext(TodoStore);
@@ -18,7 +18,7 @@ const Controllers: FC = () => {
   }, [addTask, newTask]);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) =>
-    setNewTask({ ...newTask, text: e.target.value });
+    setNewTask({ ...newTask, title: e.target.value });
 
   const onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key !== 'Enter') {
@@ -30,8 +30,8 @@ const Controllers: FC = () => {
 
   return (
     <div className="controllers">
-      <input value={newTask.text} onChange={onChange} onKeyPress={onKeyPress} type="text" />
-      <button className="addBtn" type="button" onClick={onAddTask}>
+      <input value={newTask.title} onChange={onChange} onKeyPress={onKeyPress} type="text" />
+      <button className="addBtn" type="button" disabled={!newTask.title} onClick={onAddTask}>
         Add task
       </button>
     </div>

@@ -8,10 +8,10 @@ const TasksList: FC = () => {
 
   return (
     <ul className="list">
-      {tasks?.map(({ id, text, completed }, index) => (
+      {tasks?.map(({ id, title, isDone }, index) => (
         <li key={id} role="presentation" className={`task`}>
-          <input checked={completed} onChange={() => toggleTask(index)} type="checkbox" />
-          <div className={`taskText ${completed ? 'completed' : ''}`}>{text}</div>
+          <input checked={isDone} onChange={() => toggleTask(index)} type="checkbox" />
+          <div className={`taskText ${isDone ? 'completed' : ''}`}>{title}</div>
           <button className="deleteBtn" type="button" onClick={() => deleteTask(id)}>
             x
           </button>
