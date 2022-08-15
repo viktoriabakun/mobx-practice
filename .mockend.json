@@ -1,12 +1,14 @@
 {
-  "posts": [
-    {
-      "title": "Test title",
-      "body": "Test body"
-    },
-    {
-      "title": "Test title 2",
-      "body": "Test body 2"
+  "Post": {
+    "title": { "string": {} },
+    "comments": {
+      "hasMany": "Comment"
     }
-  ]
+  },
+  "Comment": {
+    "body": { "string": {} },
+    "post": {
+      "belongsTo": "Post"
+    }
+  }
 }
